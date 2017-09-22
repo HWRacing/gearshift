@@ -1,0 +1,10 @@
+
+State Machine - |ShifterTest|currentGear
+Name currentGear.SIXTHGEAR currentGear.FIFTHGEAR currentGear.FOURTHGEAR currentGear.THIRDGEAR currentGear.SECONDGEAR currentGear.FIRSTGEAR currentGear.NEUTRAL 
+currentGear.NEUTRAL 0 0 0 0 0 0 0 
+currentGear.FIRSTGEAR 0 0 0 0 0 1 1 
+currentGear.SECONDGEAR 0 0 0 0 1 0 1 
+currentGear.THIRDGEAR 0 0 0 1 0 0 1 
+currentGear.FOURTHGEAR 0 0 1 0 0 0 1 
+currentGear.FIFTHGEAR 0 1 0 0 0 0 1 
+currentGear.SIXTHGEAR 1 0 0 0 0 0 1 
