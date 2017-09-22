@@ -1,7 +1,7 @@
+
 //Basic Shifter Test for FPGA 
 module ShifterTest (clk,upBut, downBut, neutralBut, upOut, downOut,LED0, LED1, LED2, LED3, LED4, LED5);
 
-//
 input clk;
 input upBut;
 input downBut;
@@ -28,52 +28,63 @@ reg[31:0] currentCycles;
 enum int{NORMALCYCLE = 5000000, NEUTRALCYCLE = 2500000} endConditionCycles;
 
 enum reg[2:0] {NEUTRAL, FIRSTGEAR, SECONDGEAR, THIRDGEAR, FOURTHGEAR, FIFTHGEAR, SIXTHGEAR} currentGear;
-
-reg [2:0] previousPresses;
-reg [3:0] numberButtonPresses;
-reg shiftToNeutral;
  
-//Initial Block
+
+
 initial
   begin
-    currentGear        = NEUTRAL;
-    buttonPressesUp    = 1'b0;
-    buttonPressesDown  = 1'b0;
-    outputUpHigh       = 1'b0;
-    outputDownHigh     = 1'b0;
-    shiftToNeutral     = 1'b0;
+    currentGear     = NEUTRAL;
+    outputUpHigh    = 1'b0;
+    outputDownHigh  = 1'b0;
   end
 
 always @(posedge clk)
+begin
+
+  LED0 = 1'b0;
+  LED1 = 1'b0;
+  LED2 = 1'b0;
+  LED3 = 1'b0;
+  LED4 = 1'b0;
+  LED5 = 1'b0;
+
+  case (currentGear)
+    NEUTRAL : 
+        LED0 = 1'b1;
+    FIRSTGEAR :
+        LED1 = 1'b1;
+    SECONDGEAR :
+        LED2 = 1'b1;
+    THIRDGEAR :
+        LED3 = 1'b1;
+    FOURTHGEAR :
+        LED4 = 1'b1;
+    FIFTHGEAR :
+        LED5 = 1'b1;
+  endcase 
+
+  if (outputUpHigh === 1'b1)
   begin
-
-    //LED STATE STUFF
-    LED0 = 1'b0;
-    LED1 = 1'b0;
-    LED2 = 1'b0;
-    LED3 = 1'b0;
-    LED4 = 1'b0;
-    LED5 = 1'b0;
-
-    case (currentGear)
-      NEUTRAL : 
-          LED0 = 1'b1;
-      FIRSTGEAR :
-          LED1 = 1'b1;
-      SECONDGEAR :
-          LED2 = 1'b1;
-      THIRDGEAR :
-          LED3 = 1'b1;
-      FOURTHGEAR :
-          LED4 = 1'b1;
-      FIFTHGEAR :
-          LED5 = 1'b1;
-    endcase 
-
-    if (buttonPressesUp  !== 1'b0)
+    upOut = 1'b1;
+    currentCycles = currentCycles + 1'b1;
+    if (currentCycles == endConditionCycles)
     begin
-
-
+      outputUpHigh = 1'b0;
+      upOut = 1'b0;
+    end
+  end
+  else if (outputDownHigh === 1'b1)
+  begin 
+    downOut = 1'b1;
+    currentCycles = currentCycles + 1'b1;
+    if (currentCycles == endConditionCycles)
+    begin
+      outputDownHigh = 1'b0;
+      downOut = 1'b0;
+    end
+  end
+  else
+  begin
     case(currentGear)
       NEUTRAL :
         begin
@@ -194,48 +205,6 @@ always @(posedge clk)
           end
         end
     endcase
-
   end
-
-
-  // Always block to count the up button presses
-always @(posedge upBut)
-  begin
-    if (downBut === 1'b0)
-      buttonPressesUp = buttonPressesUp + 1'b1;
-  end
-
-// Always block to count the down button presses
-always @(posedge downBut)
-  begin
-    if (upBut === 1'b0)
-      buttonPressesDown = buttonPressesDown + 1'b1;
-  end
-
-// The always block to deal with the neutral button. I.e. How many down presses. 
-always @(posedge neutralBut)
-  begin
-    outputUpHigh       = 1'b0;
-    outputDownHigh     = 1'b0;
-    currentCycles = endConditionCycles;
-
-    case (currentGear)
-      NEUTRAL:
-        buttonPressesDown = 4'd0;
-      FIRSTGEAR:
-        buttonPressesDown = 4'd1;
-      SECONDGEAR:
-        buttonPressesDown = 4'd2;
-      THIRDGEAR
-        buttonPressesDown = 4'd3;
-      FOURTHGEAR:
-        buttonPressesDown = 4'd4;
-      FIFTHGEAR:
-        buttonPressesDown = 4'd5;
-      SIXTHGEAR:
-        buttonPressesDown = 4'd6;
-      default:
-        buttonPressesDown = 4'd0;
-  end
-
+end
 endmodule : ShifterTest
