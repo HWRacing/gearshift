@@ -1,0 +1,156 @@
+Info: Starting: Create simulation model
+Info: qsys-generate "D:\BT\Documents\Formula Student\git\gearshift\ADCTest\ADCTestADC.qsys" --simulation=VERILOG --allow-mixed-language-simulation --output-directory="D:\BT\Documents\Formula Student\git\gearshift\ADCTest\ADCTestADC\simulation" --family="MAX 10" --part=10M08SAE144C8GES
+Progress: Loading ADCTest/ADCTestADC.qsys
+Progress: Reading input file
+Progress: Adding altpll_0 [altpll 17.0]
+Progress: Parameterizing module altpll_0
+Progress: Adding clk_0 [clock_source 17.0]
+Progress: Parameterizing module clk_0
+Progress: Adding master_0 [altera_jtag_avalon_master 17.0]
+Progress: Parameterizing module master_0
+Progress: Adding modular_adc_0 [altera_modular_adc 17.0]
+Progress: Parameterizing module modular_adc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: ADCTestADC.modular_adc_0: Interrupt sender modular_adc_0.sample_store_irq is not connected to an interrupt receiver
+Warning: ADCTestADC.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Info: ADCTestADC: Generating ADCTestADC "ADCTestADC" for SIM_VERILOG
+Info: altpll_0: Generating Verilog simulation model
+Warning: Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info: altpll_0: Generated simulation model ADCTestADC_altpll_0.vo
+Info: altpll_0: "ADCTestADC" instantiated altpll "altpll_0"
+Info: master_0: "ADCTestADC" instantiated altera_jtag_avalon_master "master_0"
+Info: modular_adc_0: "ADCTestADC" instantiated altera_modular_adc "modular_adc_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "ADCTestADC" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: rst_controller: "ADCTestADC" instantiated altera_reset_controller "rst_controller"
+Info: jtag_phy_embedded_in_jtag_master: "master_0" instantiated altera_jtag_dc_streaming "jtag_phy_embedded_in_jtag_master"
+Info: timing_adt: "master_0" instantiated timing_adapter "timing_adt"
+Info: fifo: "master_0" instantiated altera_avalon_sc_fifo "fifo"
+Info: b2p: "master_0" instantiated altera_avalon_st_bytes_to_packets "b2p"
+Info: p2b: "master_0" instantiated altera_avalon_st_packets_to_bytes "p2b"
+Info: transacto: "master_0" instantiated altera_avalon_packets_to_master "transacto"
+Info: b2p_adapter: "master_0" instantiated channel_adapter "b2p_adapter"
+Info: p2b_adapter: "master_0" instantiated channel_adapter "p2b_adapter"
+Info: control_internal: "modular_adc_0" instantiated altera_modular_adc_control "control_internal"
+Info: sequencer_internal: "modular_adc_0" instantiated altera_modular_adc_sequencer "sequencer_internal"
+Info: sample_store_internal: "modular_adc_0" instantiated altera_modular_adc_sample_store "sample_store_internal"
+Info: master_0_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "master_0_master_translator"
+Info: modular_adc_0_sample_store_csr_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "modular_adc_0_sample_store_csr_translator"
+Info: master_0_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "master_0_master_agent"
+Info: modular_adc_0_sample_store_csr_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "modular_adc_0_sample_store_csr_agent"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: master_0_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "master_0_master_limiter"
+Info: Reusing file D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/simulation/submodules/altera_avalon_sc_fifo.v
+Info: Reusing file D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/simulation/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/simulation/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: ADCTestADC: Done "ADCTestADC" with 30 modules, 53 files
+Info: qsys-generate succeeded.
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd="D:\BT\Documents\Formula Student\git\gearshift\ADCTest\ADCTestADC\ADCTestADC.spd" --output-directory="D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/simulation/" --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=D:\BT\Documents\Formula Student\git\gearshift\ADCTest\ADCTestADC\ADCTestADC.spd --output-directory=D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/simulation/ --use-relative-paths=true
+Info: Generating the following file(s) for MODELSIM simulator in D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Generating the following file(s) for VCS simulator in D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/simulation/ directory:
+Info: 	synopsys/vcs/vcs_setup.sh
+Info: Generating the following file(s) for VCSMX simulator in D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for NCSIM simulator in D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/simulation/ directory:
+Info: 	cadence/cds.lib
+Info: 	cadence/hdl.var
+Info: 	cadence/ncsim_setup.sh
+Info: 	29 .cds.lib files in cadence/cds_libs/ directory
+Info: Generating the following file(s) for RIVIERA simulator in D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/simulation/.
+Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate "D:\BT\Documents\Formula Student\git\gearshift\ADCTest\ADCTestADC.qsys" --block-symbol-file --output-directory="D:\BT\Documents\Formula Student\git\gearshift\ADCTest\ADCTestADC" --family="MAX 10" --part=10M08SAE144C8GES
+Progress: Loading ADCTest/ADCTestADC.qsys
+Progress: Reading input file
+Progress: Adding altpll_0 [altpll 17.0]
+Progress: Parameterizing module altpll_0
+Progress: Adding clk_0 [clock_source 17.0]
+Progress: Parameterizing module clk_0
+Progress: Adding master_0 [altera_jtag_avalon_master 17.0]
+Progress: Parameterizing module master_0
+Progress: Adding modular_adc_0 [altera_modular_adc 17.0]
+Progress: Parameterizing module modular_adc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: ADCTestADC.modular_adc_0: Interrupt sender modular_adc_0.sample_store_irq is not connected to an interrupt receiver
+Warning: ADCTestADC.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate "D:\BT\Documents\Formula Student\git\gearshift\ADCTest\ADCTestADC.qsys" --synthesis=VERILOG --output-directory="D:\BT\Documents\Formula Student\git\gearshift\ADCTest\ADCTestADC\synthesis" --family="MAX 10" --part=10M08SAE144C8GES
+Progress: Loading ADCTest/ADCTestADC.qsys
+Progress: Reading input file
+Progress: Adding altpll_0 [altpll 17.0]
+Progress: Parameterizing module altpll_0
+Progress: Adding clk_0 [clock_source 17.0]
+Progress: Parameterizing module clk_0
+Progress: Adding master_0 [altera_jtag_avalon_master 17.0]
+Progress: Parameterizing module master_0
+Progress: Adding modular_adc_0 [altera_modular_adc 17.0]
+Progress: Parameterizing module modular_adc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: ADCTestADC.modular_adc_0: Interrupt sender modular_adc_0.sample_store_irq is not connected to an interrupt receiver
+Warning: ADCTestADC.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Info: ADCTestADC: Generating ADCTestADC "ADCTestADC" for QUARTUS_SYNTH
+Info: altpll_0: "ADCTestADC" instantiated altpll "altpll_0"
+Info: master_0: "ADCTestADC" instantiated altera_jtag_avalon_master "master_0"
+Info: modular_adc_0: "ADCTestADC" instantiated altera_modular_adc "modular_adc_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "ADCTestADC" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: rst_controller: "ADCTestADC" instantiated altera_reset_controller "rst_controller"
+Info: jtag_phy_embedded_in_jtag_master: "master_0" instantiated altera_jtag_dc_streaming "jtag_phy_embedded_in_jtag_master"
+Info: timing_adt: "master_0" instantiated timing_adapter "timing_adt"
+Info: fifo: "master_0" instantiated altera_avalon_sc_fifo "fifo"
+Info: b2p: "master_0" instantiated altera_avalon_st_bytes_to_packets "b2p"
+Info: p2b: "master_0" instantiated altera_avalon_st_packets_to_bytes "p2b"
+Info: transacto: "master_0" instantiated altera_avalon_packets_to_master "transacto"
+Info: b2p_adapter: "master_0" instantiated channel_adapter "b2p_adapter"
+Info: p2b_adapter: "master_0" instantiated channel_adapter "p2b_adapter"
+Info: control_internal: "modular_adc_0" instantiated altera_modular_adc_control "control_internal"
+Info: sequencer_internal: "modular_adc_0" instantiated altera_modular_adc_sequencer "sequencer_internal"
+Info: sample_store_internal: "modular_adc_0" instantiated altera_modular_adc_sample_store "sample_store_internal"
+Info: master_0_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "master_0_master_translator"
+Info: modular_adc_0_sample_store_csr_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "modular_adc_0_sample_store_csr_translator"
+Info: master_0_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "master_0_master_agent"
+Info: modular_adc_0_sample_store_csr_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "modular_adc_0_sample_store_csr_agent"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
+Info: master_0_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "master_0_master_limiter"
+Info: Reusing file D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/synthesis/submodules/altera_avalon_sc_fifo.v
+Info: Reusing file D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file D:/BT/Documents/Formula Student/git/gearshift/ADCTest/ADCTestADC/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: ADCTestADC: Done "ADCTestADC" with 30 modules, 54 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
